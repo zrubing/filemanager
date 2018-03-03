@@ -1,5 +1,3 @@
-# Docker context should be "<repo-root>"
-
 FROM node:8-alpine
 LABEL maintainer="kirill.volkovich@opuscapita.com"
 
@@ -15,6 +13,7 @@ COPY . /app
 RUN cd /app && \
     npm install && \
     npm run build-api-docs && mkdir -p ./static/api && cp -r api-docs.tmp/docs ./static/api && \
+    npm prune --production && \
     mkdir /var/app-data
 
 VOLUME /var/app-data

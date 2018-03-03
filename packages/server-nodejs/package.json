@@ -12,7 +12,8 @@
     "validate-api-docs": "rm -rf api-docs.tmp && mkdir -p api-docs.tmp/source api-docs.tmp/docs && cp -r docs/api-docs api-docs.tmp/source && sed -i s@__env__baseURI__@$SERVER_URL@g api-docs.tmp/source/api-docs/main.raml && raml-validate api-docs.tmp/source/api-docs/main.raml",
     "prepare-demo": "cd ../.. && rm -rf demo/demo-fs && cd demo && sh ./populate-demo-fs.sh && cd ../packages/server-nodejs",
     "test-restapi": "mocha --require config/test/mocha-setup.js --recursive api-tests/*.spec.js",
-    "test-rest": "npm run prepare-demo && npm run test-restapi"
+    "test-rest": "npm run prepare-demo && npm run test-restapi",
+    "docker:build": "./docker-build.sh"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
