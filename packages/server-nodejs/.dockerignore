@@ -1,0 +1,30 @@
+*~*
+*#*
+.tern*
+*.log
+*.lock
+*.iml
+.idea
+
+test-results.xml
+coverage
+.nyc_output
+
+/api-docs.tmp
+/api-tests.tmp
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+# jspm_packages/
+**/node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache

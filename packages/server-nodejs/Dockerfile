@@ -5,15 +5,16 @@ LABEL maintainer="kirill.volkovich@opuscapita.com"
 
 ENV PORT 80
 ENV HOST 0.0.0.0
-ENV NODE_ENV "production"
 ENV OPUSCAPITA_FILEMANAGER_FS_ROOT "/var/app-data"
 ENV OPUSCAPITA_FILEMANAGER_READONLY "true"
 
 WORKDIR /app
 
-COPY ./packages/server-nodejs /app
+COPY . /app
 
-RUN cd /app && npm install && \
+RUN cd /app && \
+    npm install && \
+    npm run build-api-docs && mkdir -p ./static/api && cp -r api-docs.tmp/docs ./static/api && \
     mkdir /var/app-data
 
 VOLUME /var/app-data

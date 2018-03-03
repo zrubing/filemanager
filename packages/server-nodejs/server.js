@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const filemanagerMiddleware = require('./middleware');
 const logger = require('./logger');
 
@@ -14,6 +15,8 @@ function run(config = require('./config/server-config')) {
   });
 
   app.use(filemanagerMiddleware(config));
+
+  app.use(express.static(path.resolve(__dirname, './static')));
 
   app.listen(port, host, function(err) {
     if (err) {
