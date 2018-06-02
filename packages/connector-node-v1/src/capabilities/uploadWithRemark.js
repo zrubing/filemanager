@@ -41,10 +41,10 @@ export default (apiOptions, actions) => {
     label: localeLabel,
     shouldBeAvailable: (apiOptions) => {
       const resource = getResource();
-      if (!resource || !resource.capablities) {
+      if (!resource || !resource.capabilities) {
         return false
       }
-      return resource.capablities.canAddChildren
+      return resource.capabilities.canAddChildren
     },
     availableInContexts: ['files-view', 'new-button'],
     handler: () => handler(apiOptions, actions)

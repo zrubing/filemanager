@@ -34,21 +34,16 @@ export default class UploadWithRemarkDialog extends Component {
     let { onHide, headerText, inputLabelText, messageText, submitButtonText, cancelButtonText } = this.props;
     return (
       <Dialog onHide={onHide}>
-        <div className="oc-fm--dialog__content" onKeyDown={this.handleKeyDown}>
+        <div>
           <div className="oc-fm--dialog__header">
             {headerText}
           </div>
-          {inputLabelText && (
-            <div className="oc-fm--dialog__input-label">{inputLabelText}</div>
-          )}
-          <input type="file" />
+          <input className="oc-fm--dialog__input-file" name="myFile" type="file" />
           <input ref={ref => { ref && ref.focus() }}
-            spellCheck={false}
             className="
               oc-fm--dialog__input
               oc-fm--dialog__input--margin-bottom
             "
-            value={value}
           />
           <div className="oc-fm--dialog__horizontal-group oc-fm--dialog__horizontal-group--to-right">
             <button type="button" className="oc-fm--dialog__button oc-fm--dialog__button--default" onClick={onHide}>
