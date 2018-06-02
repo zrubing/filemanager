@@ -6,20 +6,47 @@ import getMess from '../translations';
 const label = 'upload';
 
 function handler(apiOptions, actions) {
-    const {
-        showDialog,
-        hideDialog,
-        navigateToDir,
-        updateNotifications,
-        getSelectedResources,
-        getResource,
-        getNotifications
-    } = actions;
+  const {
+    showDialog,
+    hideDialog,
+    navigateToDir,
+    updateNotifications,
+    getSelectedResources,
+    getResource,
+    getNotifications
+  } = actions;
 
-    const getMessage = getMess.bind(null, apiOptions.locale);
-    const localeLabel = getMessage(label)
+  const getMessage = getMess.bind(null, apiOptions.locale);
+  const localeLabel = getMessage(label)
 
-    const rawDialogElement = {
-
+  const rawDialogElement = {
+    elementType: 'UploadWithRemarkDialog',
+    elementProps: {
+      onHide: hideDialog,
+      onSubmit: async () => {
+        console.log('submit')
+      }
     }
+
+  }
+  showDialog(rawDialogElement);
+}
+export default (apiOptions, actions) => {
+  const localeLabel = getMess(apiOptions.locale, label);
+  const { getResource } = actions;
+
+  return {
+    id: label,
+    icon: { svg: icons.fileUpload },
+    label: localeLabel,
+    shouldBeAvailable: (apiOptions) => {
+      const resource = getResource();
+      if (!resource || !resource.capablities) {
+        return false
+      }
+      return resource.capablities.canAddChildren
+    },
+    availableInContexts: ['files-view', 'new-button'],
+    handler: () => handler(apiOptions, actions)
+  }
 }

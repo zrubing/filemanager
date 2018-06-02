@@ -4,12 +4,14 @@ import download from './download';
 import upload from './upload';
 import rename from './rename';
 import sort from './sort';
+import uploadWithRemark from './uploadWithRemark';
 
 const capabilities = [
   createFolder,
   rename,
   download,
-  upload,
+  // upload,
+  uploadWithRemark,
   deleteResource,
   sort
 ];
