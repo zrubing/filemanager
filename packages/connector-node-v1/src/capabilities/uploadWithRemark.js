@@ -19,12 +19,22 @@ function handler(apiOptions, actions) {
   const getMessage = getMess.bind(null, apiOptions.locale);
   const localeLabel = getMessage(label)
 
+
+  const prevResourceId = getResource().id;
+  const resource = getResource();
+
   const rawDialogElement = {
     elementType: 'UploadWithRemarkDialog',
     elementProps: {
       onHide: hideDialog,
       onSubmit: async (data) => {
-        await api.uploadFileToIdWithRemark({ apiOptions, parentId: resource.id, file: data.file, remark: data.descriptions })
+        const response = await
+          api.uploadFileToIdWithRemark({ apiOptions, parentId: resource.id, file: data.file, remark: data.descriptions });
+        const newResource = normalizeResource(response.body[0]);
+
+        if (prevResourceId === resource.id) {
+          navigateToDir(resource.id, newResource.id, false);
+        }
       }
     }
 
