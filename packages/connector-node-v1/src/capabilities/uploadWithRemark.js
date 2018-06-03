@@ -23,8 +23,8 @@ function handler(apiOptions, actions) {
     elementType: 'UploadWithRemarkDialog',
     elementProps: {
       onHide: hideDialog,
-      onSubmit: async () => {
-        console.log('submit')
+      onSubmit: async (data) => {
+
       }
     }
 

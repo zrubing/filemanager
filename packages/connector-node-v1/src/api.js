@@ -102,6 +102,17 @@ async function getParentIdForResource(options, resource) {
   return resource.parentId;
 }
 
+async function uploadFileToIdWithRemark({ apiOptions, parentId, file, remark, onProgress }) {
+  let route = `${apiOptions.apiRoot}/files`;
+  return request.post(route).
+    field('type', 'file').
+    field('parentId', parentId).
+    field('remark', remark).
+    attach('files', file.file, file.name).
+    on('progress', event => {
+      onProgress(event.percent);
+    });
+}
 async function uploadFileToId({ apiOptions, parentId, file, onProgress }) {
   let route = `${apiOptions.apiRoot}/files`;
   return request.post(route).
@@ -173,5 +184,6 @@ export default {
   downloadResources,
   renameResource,
   removeResources,
-  uploadFileToId
+  uploadFileToId,
+  uploadFileToIdWithRemark
 };

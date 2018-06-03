@@ -39,6 +39,10 @@ export default class UploadWithRemarkDialog extends Component {
 
   handleSubmitButtonClick = async (e) => {
     if(this.state.file){
+      await this.props.onSubmit({
+        file:this.state.file,
+        description:this.state.description
+      });
 
     }else{
       alert('请选择文件!')
