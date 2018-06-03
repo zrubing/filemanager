@@ -29,7 +29,32 @@ const defaultProps = {
 };
 
 export default class UploadWithRemarkDialog extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      file:null,
+      description:''
+    }
+  }
 
+  handleSubmitButtonClick = async (e) => {
+    if(this.state.file){
+
+    }else{
+      alert('请选择文件!')
+    }
+  }
+  onChange=(e)=>{
+    this.setState({
+      file:e.target.files[0]
+    })
+  }
+
+  onTextChange=(e)=>{
+    this.setState({
+      description:e.target.value
+    })
+  }
   render() {
     let { onHide, headerText, inputLabelText, messageText, submitButtonText, cancelButtonText } = this.props;
     return (
@@ -38,12 +63,13 @@ export default class UploadWithRemarkDialog extends Component {
           <div className="oc-fm--dialog__header">
             {headerText}
           </div>
-          <input className="oc-fm--dialog__input-file" name="myFile" type="file" />
+          <input className="oc-fm--dialog__input-file" name="myFile" type="file" onChange={this.onChange} />
           <input ref={ref => { ref && ref.focus() }}
             className="
               oc-fm--dialog__input
               oc-fm--dialog__input--margin-bottom
             "
+            onChange={this.onTextChange}
           />
           <div className="oc-fm--dialog__horizontal-group oc-fm--dialog__horizontal-group--to-right">
             <button type="button" className="oc-fm--dialog__button oc-fm--dialog__button--default" onClick={onHide}>
