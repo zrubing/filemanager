@@ -29,7 +29,7 @@ function handler(apiOptions, actions) {
       onHide: hideDialog,
       onSubmit: async (data) => {
         const response = await
-          api.uploadFileToIdWithRemark({ apiOptions, parentId: resource.id, file: data.file, remark: data.descriptions });
+          api.uploadFileToIdWithRemark({ apiOptions, parentId: resource.id, file: data.file, remark: data.description });
         const newResource = normalizeResource(response.body[0]);
 
         if (prevResourceId === resource.id) {
