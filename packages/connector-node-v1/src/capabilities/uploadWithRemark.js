@@ -24,7 +24,7 @@ function handler(apiOptions, actions) {
     elementProps: {
       onHide: hideDialog,
       onSubmit: async (data) => {
-
+        await api.uploadFileToIdWithRemark({ apiOptions, parentId: resource.id, file: data.file, remark: data.descriptions })
       }
     }
 

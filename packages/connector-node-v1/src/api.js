@@ -102,16 +102,13 @@ async function getParentIdForResource(options, resource) {
   return resource.parentId;
 }
 
-async function uploadFileToIdWithRemark({ apiOptions, parentId, file, remark, onProgress }) {
+async function uploadFileToIdWithRemark({ apiOptions, parentId, file, remark }) {
   let route = `${apiOptions.apiRoot}/files`;
   return request.post(route).
     field('type', 'file').
     field('parentId', parentId).
     field('remark', remark).
-    attach('files', file.file, file.name).
-    on('progress', event => {
-      onProgress(event.percent);
-    });
+    attach('files', file.file, file.name)
 }
 async function uploadFileToId({ apiOptions, parentId, file, onProgress }) {
   let route = `${apiOptions.apiRoot}/files`;
