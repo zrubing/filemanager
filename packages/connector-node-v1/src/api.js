@@ -108,7 +108,7 @@ async function uploadFileToIdWithRemark({ apiOptions, parentId, file, remark }) 
     field('type', 'file').
     field('parentId', parentId).
     field('remark', remark).
-    attach('files', file.file, file.name)
+    attach('files', file, file.name)
 }
 async function uploadFileToId({ apiOptions, parentId, file, onProgress }) {
   let route = `${apiOptions.apiRoot}/files`;
