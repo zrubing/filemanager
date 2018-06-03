@@ -2,7 +2,7 @@ import api from '../api';
 import onFailError from '../utils/onFailError';
 import icons from '../icons-svg';
 import getMess from '../translations';
-
+import { normalizeResource } from '../utils/common';
 const label = 'upload';
 
 function handler(apiOptions, actions) {
@@ -32,6 +32,7 @@ function handler(apiOptions, actions) {
           api.uploadFileToIdWithRemark({ apiOptions, parentId: resource.id, file: data.file, remark: data.description });
         const newResource = normalizeResource(response.body[0]);
 
+        hideDialog();
         if (prevResourceId === resource.id) {
           navigateToDir(resource.id, newResource.id, false);
         }
