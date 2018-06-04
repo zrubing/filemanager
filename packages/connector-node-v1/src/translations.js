@@ -193,6 +193,38 @@ const translations = {
     lastModified: 'Senast ändrad',
     reallyRemove: '{files} kommer att tas bort. Vill du verkligen fortsätta?',
     unableReadDir: 'Det gick inte att läsa en katalog.'
+  },
+  zh: {
+    uploading: '上传',
+    uploadingItem: '上传 1 个',
+    uploadingItems: '上传 {quantity} 个',
+    upload: '上传',
+    remove: '删除',
+    download: '下载',
+    rename: '重命名',
+    creating: '创建',
+    creatingName: '创建 {name} 中...',
+    create: '创建',
+    createFolder: '创建文件夹',
+    zipping: '压缩中',
+    zippingItem: '压缩1个文件',
+    zippingItems: '压缩 {quantity} 个文件',
+    items: '条目',
+    item: '条目',
+    cancel: '取消',
+    confirm: '确认',
+    folderName: '目录名',
+    files: '文件',
+    fileExist: '{name}文件或目录已经存在',
+    newName: '新名称',
+    emptyName: '名称不能为空',
+    tooLongFolderName: '目录名不能超出255字符',
+    folderNameNotAllowedCharacters: '目录包含非法字符',
+    title: '标题',
+    fileSize: '文件大小',
+    lastModified: '上次修改时间',
+    reallyRemove: '{files} 将被删除，确定吗?',
+    unableReadDir: '无法读取这个目录'
   }
 };
 
