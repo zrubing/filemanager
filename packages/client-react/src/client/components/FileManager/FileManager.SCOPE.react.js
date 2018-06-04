@@ -5,7 +5,7 @@
 
 import React, { Component } from 'react';
 import { showroomScopeDecorator } from '@opuscapita/react-showroom-client';
-import connectorNodeV1 from '@opuscapita/react-filemanager-connector-node-v1';
+import connectorNodeV1 from '@rbzhang/react-filemanager-connector-node-v1';
 import connectorGoogleDriveV2 from '@opuscapita/react-filemanager-connector-google-drive-v2';
 import FileNavigator from '../FileNavigator';
 

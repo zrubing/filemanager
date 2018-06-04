@@ -64,7 +64,7 @@ filemanager.run(config);
 Install packages
 
 ```shell
-npm install --save @opuscapita/react-filemanager @opuscapita/react-filemanager-connector-node-v1
+npm install --save @opuscapita/react-filemanager @rbzhang/react-filemanager-connector-node-v1
 ```
 
 Use it as a child component of you application
@@ -73,7 +73,7 @@ Use it as a child component of you application
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { FileManager, FileNavigator } from '@opuscapita/react-filemanager';
-import connectorNodeV1 from '@opuscapita/react-filemanager-connector-node-v1';
+import connectorNodeV1 from '@rbzhang/react-filemanager-connector-node-v1';
 
 const apiOptions = {
   ...connectorNodeV1.apiOptions,

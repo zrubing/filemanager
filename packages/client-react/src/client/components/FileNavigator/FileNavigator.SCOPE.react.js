@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import { showroomScopeDecorator } from '@opuscapita/react-showroom-client';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContextProvider } from 'react-dnd';
-import connectorNodeV1 from '@opuscapita/react-filemanager-connector-node-v1';
+import connectorNodeV1 from '@rbzhang/react-filemanager-connector-node-v1';
 
 let connectors = {
   nodeV1: connectorNodeV1
