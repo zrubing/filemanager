@@ -43,20 +43,20 @@ const defaultProps = {
   capabilities: () => [],
   className: '',
   initialResourceId: '',
-  listViewLayout: () => {},
+  listViewLayout: () => { },
   viewLayoutOptions: {},
   signInRenderer: null,
-  onResourceLocationChange: () => {},
-  onSelectionChange: () => {},
-  onResourceChange: () => {},
-  onResourceChildrenChange: () => {}
+  onResourceLocationChange: () => { },
+  onSelectionChange: () => { },
+  onResourceChange: () => { },
+  onResourceChildrenChange: () => { }
 };
 
 const MONITOR_API_AVAILABILITY_TIMEOUT = 16;
 
 @clickOutside
 export default
-class FileNavigator extends Component {
+  class FileNavigator extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -75,7 +75,8 @@ class FileNavigator extends Component {
       selection: [],
       sortBy: 'title',
       sortDirection: SortDirection.ASC,
-      initializedCapabilities: []
+      initializedCapabilities: [],
+      remarks: '暂无备注',
     };
   }
 
@@ -246,6 +247,12 @@ class FileNavigator extends Component {
   handleSelectionChange = (selection) => {
     this.setState({ selection });
     this.props.onSelectionChange(selection);
+
+    if (selection.length === 1) {
+
+    } else {
+      this.setState({ remarks: '暂无备注' })
+    }
   };
 
   handleResourceChildrenChange = (resourceChildren) => {
@@ -376,7 +383,7 @@ class FileNavigator extends Component {
         let res = ({
           icon: capability.icon,
           label: capability.label || '',
-          onClick: capability.handler || (() => {}),
+          onClick: capability.handler || (() => { }),
         });
 
         if (!isDataView) {
@@ -466,7 +473,7 @@ class FileNavigator extends Component {
             rowContextMenuId={rowContextMenuId}
             filesViewContextMenuId={filesViewContextMenuId}
             onKeyDown={this.handleViewKeyDown}
-            onRowClick={this.handleResourceItemClick}
+            onRowClick={this.onRowClick}
             onRowRightClick={this.handleResourceItemRightClick}
             onRowDoubleClick={this.handleResourceItemDoubleClick}
             onSelection={this.handleSelectionChange}
@@ -500,6 +507,9 @@ class FileNavigator extends Component {
           triggerId={filesViewContextMenuId}
           items={filesViewContextMenuItems}
         />
+        <p className="oc-fm-file-navigator__file-remark-info">
+          {this.state.remarks}
+        </p>
       </div>
     );
   }
