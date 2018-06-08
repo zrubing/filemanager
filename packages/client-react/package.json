@@ -1,6 +1,6 @@
 {
   "name": "@rbzhang/react-filemanager",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "React file manager",
   "scripts": {
     "link-mode": "cross-env NODE_ENV=link webpack --config ./config/webpack.config.js",
