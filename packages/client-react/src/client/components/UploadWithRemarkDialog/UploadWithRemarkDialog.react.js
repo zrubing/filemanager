@@ -39,7 +39,6 @@ export default class UploadWithRemarkDialog extends Component {
 
   handleSubmitButtonClick = async (e) => {
     if(this.state.file){
-      console.log(this.state.file);
       await this.props.onSubmit({
         file:this.state.file,
         description:this.state.description

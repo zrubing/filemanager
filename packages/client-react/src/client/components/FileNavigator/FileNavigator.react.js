@@ -251,8 +251,10 @@ export default
     let { api, apiOptions } = this.props;
 
     if (selection.length === 1) {
-      let response = await api.getRemarks(apiOptions,selection[0]);
-      console.log(response);
+      let response = await api.getRemarks(apiOptions, selection[0]);
+      this.setState({
+        remarks: response.body.remarks
+      })
 
     } else {
       this.setState({ remarks: '暂无备注' })
