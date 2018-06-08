@@ -1,5 +1,6 @@
 import request from 'superagent';
 import { normalizeResource } from './utils/common';
+import { AsyncResource } from 'async_hooks';
 
 /**
  * hasSignedIn
@@ -169,6 +170,14 @@ async function removeResources(options, selectedResources) {
   return Promise.all(selectedResources.map(resource => removeResource(options, resource)))
 }
 
+async function getRemarks(id) {
+  const route = `${options.apiRoot}/files/getRemarks`;
+  const method = 'POST';
+  const params = {
+    id: id
+  }
+  return request(method, route).send(params);
+}
 export default {
   init,
   hasSignedIn,
@@ -184,5 +193,6 @@ export default {
   renameResource,
   removeResources,
   uploadFileToId,
-  uploadFileToIdWithRemark
+  uploadFileToIdWithRemark,
+  getRemarks
 };
