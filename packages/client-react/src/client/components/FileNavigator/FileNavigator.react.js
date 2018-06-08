@@ -244,11 +244,15 @@ export default
     this.props.onResourceLocationChange(resourceLocation);
   };
 
-  handleSelectionChange = (selection) => {
+  handleSelectionChange = async (selection) => {
     this.setState({ selection });
     this.props.onSelectionChange(selection);
 
+    let { api, apiOptions } = this.props;
+
     if (selection.length === 1) {
+      let response = await api.getRemarks(apiOptions,selection[0]);
+      console.log(response);
 
     } else {
       this.setState({ remarks: '暂无备注' })
