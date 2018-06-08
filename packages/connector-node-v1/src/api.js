@@ -104,9 +104,11 @@ async function getParentIdForResource(options, resource) {
 
 async function uploadFileToIdWithRemark({ apiOptions, parentId, file, remark }) {
   let route = `${apiOptions.apiRoot}/files`;
+  let loginCode = apiOptions.loginCode;
   return request.post(route).
     field('type', 'file').
     field('parentId', parentId).
+    field('loginCode', loginCode).
     field('remark', remark).
     attach('files', file, file.name)
 }
