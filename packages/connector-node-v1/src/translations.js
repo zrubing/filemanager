@@ -29,7 +29,9 @@ const translations = {
     fileSize: 'File size',
     lastModified: 'Last modified',
     reallyRemove: '{files} will be deleted. Do you really want to proceed?',
-    unableReadDir: 'Unable to read a directory.'
+    unableReadDir: 'Unable to read a directory.',
+    modifyRemarks: 'modifyRemarks',
+    newRemarks: 'new remarks'
   },
 
   de: {
@@ -224,7 +226,9 @@ const translations = {
     fileSize: '文件大小',
     lastModified: '上次修改时间',
     reallyRemove: '{files} 将被删除，确定吗?',
-    unableReadDir: '无法读取这个目录'
+    unableReadDir: '无法读取这个目录',
+    modifyRemarks: '修改备注',
+    newRemarks: '新备注'
   }
 };
 

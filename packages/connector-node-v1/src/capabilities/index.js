@@ -5,6 +5,7 @@ import upload from './upload';
 import rename from './rename';
 import sort from './sort';
 import uploadWithRemark from './uploadWithRemark';
+import modifyRemarks from './modifyRemarks';
 
 const capabilities = [
   createFolder,
@@ -13,6 +14,7 @@ const capabilities = [
   // upload,
   uploadWithRemark,
   deleteResource,
+  modifyRemarks,
   sort
 ];
 

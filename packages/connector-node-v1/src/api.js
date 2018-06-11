@@ -169,11 +169,20 @@ async function removeResources(options, selectedResources) {
   return Promise.all(selectedResources.map(resource => removeResource(options, resource)))
 }
 
-async function getRemarks (options, id) {
+async function getRemarks(options, id) {
   const route = `${options.apiRoot}/getRemarks`;
   const method = 'POST';
   const params = {
     id: id
+  }
+  return request(method, route).send(params);
+}
+async function modifyRemarks(options, id, newRemarks) {
+  const route = `${options.apiRoot}/modifyRemarks`;
+  const method = 'POST';
+  const params = {
+    id: id,
+    newRemarks: newRemarks
   }
   return request(method, route).send(params);
 }
@@ -193,5 +202,6 @@ export default {
   removeResources,
   uploadFileToId,
   uploadFileToIdWithRemark,
-  getRemarks
+  getRemarks,
+  modifyRemarks
 };

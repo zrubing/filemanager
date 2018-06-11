@@ -85,6 +85,7 @@ export default
 
     let capabilitiesProps = this.getCapabilitiesProps();
     let initializedCapabilities = capabilities(apiOptions, capabilitiesProps);
+    console.log(initializedCapabilities);
 
     let { apiInitialized, apiSignedIn } = await api.init({ ...apiOptions });
 
