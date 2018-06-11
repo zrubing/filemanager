@@ -222,7 +222,7 @@ const translations = {
     emptyName: '名称不能为空',
     tooLongFolderName: '目录名不能超出255字符',
     folderNameNotAllowedCharacters: '目录包含非法字符',
-    title: '标题',
+    title: '文件名称',
     fileSize: '文件大小',
     lastModified: '上次修改时间',
     reallyRemove: '{files} 将被删除，确定吗?',
