@@ -123,6 +123,11 @@ async function uploadFileToId({ apiOptions, parentId, file, onProgress }) {
     });
 }
 
+async function getRootTree({ apiOptions }) {
+  let route = `${apiOptions.apiRoot}/getRootTree`;
+  return request.post(route);
+}
+
 async function downloadResources({ apiOptions, resources, onProgress }) {
   const downloadUrl = resources.reduce(
     (url, resource, num) => url + (num === 0 ? '' : '&') + `items=${resource.id}`,
@@ -203,5 +208,6 @@ export default {
   uploadFileToId,
   uploadFileToIdWithRemark,
   getRemarks,
-  modifyRemarks
+  modifyRemarks,
+  getRootTree
 };
