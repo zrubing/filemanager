@@ -59,6 +59,9 @@ export default
   class FileNavigator extends Component {
   constructor(props) {
     super(props);
+    if (this.props.onRef) {
+      this.props.onRef(this);
+    }
     this.state = {
       apiInitialized: false,
       apiSignedIn: false,
@@ -85,7 +88,6 @@ export default
 
     let capabilitiesProps = this.getCapabilitiesProps();
     let initializedCapabilities = capabilities(apiOptions, capabilitiesProps);
-    console.log(initializedCapabilities);
 
     let { apiInitialized, apiSignedIn } = await api.init({ ...apiOptions });
 
