@@ -165,9 +165,11 @@ async function renameResource(options, id, newName) {
 }
 
 async function removeResource(options, resource) {
-  const route = `${options.apiRoot}/files/${resource.id}`;
-  const method = 'DELETE';
-  return request(method, route).send({ loginCode: options.loginCode })
+  const route = `${options.apiRoot}/removeResource/${resource.id}`;
+  const method = 'POST';
+  return request(method, route).send({
+    loginCode: options.loginCode
+  })
 }
 
 async function removeResources(options, selectedResources) {

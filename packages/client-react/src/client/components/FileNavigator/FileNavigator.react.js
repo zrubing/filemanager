@@ -378,7 +378,8 @@ export default
     getResourceChildren: () => this.state.resourceChildren,
     getResourceLocation: () => this.state.resourceLocation,
     getNotifications: () => this.state.notifications,
-    getSortState: () => ({ sortBy: this.state.sortBy, sortDirection: this.state.sortDirection })
+    getSortState: () => ({ sortBy: this.state.sortBy, sortDirection: this.state.sortDirection }),
+    refreshRoot: this.props.refreshRoot
   });
 
   getCapability = ({ context, isDataView = false }) => {

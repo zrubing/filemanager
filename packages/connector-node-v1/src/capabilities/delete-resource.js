@@ -13,7 +13,8 @@ function handler(apiOptions, actions) {
     updateNotifications,
     getSelectedResources,
     getResource,
-    getNotifications
+    getNotifications,
+    refreshRoot
   } = actions;
 
   const getMessage = getMess.bind(null, apiOptions.locale);
@@ -36,6 +37,7 @@ function handler(apiOptions, actions) {
           await api.removeResources(apiOptions, selectedResources);
           const resource = getResource();
           navigateToDir(resource.id, null, false);
+          refreshRoot();
         } catch (err) {
           onFailError({
             getNotifications,

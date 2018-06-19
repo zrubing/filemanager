@@ -13,7 +13,8 @@ function handler(apiOptions, actions) {
     navigateToDir,
     updateNotifications,
     getResource,
-    getNotifications
+    getNotifications,
+    refreshRoot
   } = actions;
 
   const getMessage = getMess.bind(null, apiOptions.locale);
@@ -35,6 +36,7 @@ function handler(apiOptions, actions) {
             const result = await api.createFolder(apiOptions, resource.id, folderName);
             navigateToDir(resource.id, result.body.id, false);
           }
+          refreshRoot();
           return null
         } catch (err) {
           hideDialog();

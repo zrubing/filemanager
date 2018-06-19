@@ -13,7 +13,8 @@ function handler(apiOptions, actions) {
     updateNotifications,
     getSelectedResources,
     getResource,
-    getNotifications
+    getNotifications,
+    refreshRoot
   } = actions;
 
   const getMessage = getMess.bind(null, apiOptions.locale);
@@ -35,6 +36,7 @@ function handler(apiOptions, actions) {
         hideDialog();
         if (prevResourceId === resource.id) {
           navigateToDir(resource.id, newResource.id, false);
+          refreshRoot();
         }
       }
     }

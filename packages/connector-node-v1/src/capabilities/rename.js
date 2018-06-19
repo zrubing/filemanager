@@ -14,7 +14,8 @@ function handler(apiOptions, actions) {
     updateNotifications,
     getSelectedResources,
     getResource,
-    getNotifications
+    getNotifications,
+    refreshRoot
   } = actions;
 
   const getMessage = getMess.bind(null, apiOptions.locale);
@@ -39,6 +40,7 @@ function handler(apiOptions, actions) {
             const result = await api.renameResource(apiOptions, selectedResources[0].id, name);
             const resource = getResource();
             navigateToDir(resource.id, result.body.id, false);
+            refreshRoot();
           }
           return null;
         } catch (err) {
